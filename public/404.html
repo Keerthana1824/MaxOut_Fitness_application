@@ -7,25 +7,14 @@
       // Single Page Apps for GitHub Pages
       // https://github.com/rafrex/spa-github-pages
       // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
-      // ----------------------------------------------------------------------
-      // This script takes the current URL and 'strips' the trailing index.html or index.htm
-      // (or the file specified in the `indexFilename` input) from it
-      // after redirecting to the corresponding path without the filename.
-      //
-      // This means that You can use pretty URL's in your JavaScript apps!
-      // =============================
 
-      var indexFilename = 'index.html'; // Define the name of your app's index file
-      var pathSegmentsToKeep = 1; // The number of path segments that you want to keep in the URL
-
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/^\//, '') +
-        (l.search ? '&' + l.search.slice(1) : '') +
-        l.hash
-      );
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
     </script>
   </head>
   <body>
