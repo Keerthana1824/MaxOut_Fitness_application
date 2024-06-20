@@ -17,6 +17,7 @@ const ExerciseCard = ({ exercise }) => (
       {exercise.name}
     </Typography>
   </Link>
+  
 );
 
 export default ExerciseCard;
