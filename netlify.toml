@@ -1,0 +1,4 @@
+# Platform from the same cloud provider - from GitHub to Bitget cloud
+[build]
+# Add feature flag for production to get files.
+  publish = '/app/features/browser/'
